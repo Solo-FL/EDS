@@ -1,9 +1,9 @@
 [FileInfo]
-FileName=SOLO_Motor_Controllers_EDS_General.eds
+FileName=SOLO.eds
 FileVersion=1
 FileRevision=0
 EDSVersion=4.0
-Description=EDS for Solo Motor Controllers 
+Description=EDS for Solo Motor Controllers units 
 CreatedBy=Solo Motor Controllers
 CreationTime=12:54PM
 CreationDate=08-03-2023
