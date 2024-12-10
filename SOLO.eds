@@ -8,16 +8,20 @@ CreatedBy=Solo Motor Controllers
 CreationTime=12:54PM
 CreationDate=08-03-2023
 ModifiedBy=Solo Motor Controllers team
-ModificationTime=07:03PM
-ModificationDate=08-10-2023
+ModificationTime=12:50PM
+ModificationDate=12-10-2024
+
+[Comments]
+Lines=1
+Line1=cover all units
 
 [DeviceInfo]
 Vendorname=SOLO Motor Controllers
 ProductName=SOLO Motor Controllers
 OrderCode=0
-VendorNumber=0
-ProductNumber=0
-RevisionNumber=0
+VendorNumber=0x00000000
+ProductNumber=0x00000000
+RevisionNumber=0x00000000
 BaudRate_10=0
 BaudRate_20=0
 BaudRate_50=0
@@ -35,10 +39,6 @@ DynamicChannelsSupported=0
 NrOfRXPDO=6
 NrOfTXPDO=6
 CompactPDO=0x00
-
-[Comments]
-Lines=1
-Line1=cover all units
 
 [DummyUsage]
 Dummy0001=0
@@ -72,7 +72,7 @@ SupportedObjects=15
 15=0x1819
 
 [ManufacturerObjects]
-SupportedObjects=65
+SupportedObjects=71
 1=0x3001
 2=0x3002
 3=0x3003
@@ -138,6 +138,12 @@ SupportedObjects=65
 63=0x3042
 64=0x3043
 65=0x3044
+66=0x3047
+67=0x3048
+68=0x304A
+69=0x304B
+70=0x304C
+71=0x5FFF
 
 [1001]
 ParameterName=Read Error Register
@@ -643,7 +649,7 @@ ParameterName=Commanding Mode
 ObjectType=0x07
 DataType=0x0007
 LowLimit=0
-HighLimit=1
+HighLimit=2
 AccessType=rw
 DefaultValue=0
 PDOMapping=0
@@ -654,9 +660,9 @@ ParameterName=Current Limit
 ObjectType=0x07
 DataType=0x0008
 LowLimit=0.0
-HighLimit=32.0
+HighLimit=300.0
 AccessType=rw
-DefaultValue=32
+DefaultValue=32.0
 PDOMapping=0
 ObjFlags=0x00
 
@@ -665,9 +671,9 @@ ParameterName=Torque Reference
 ObjectType=0x07
 DataType=0x0008
 LowLimit=0.0
-HighLimit=32.0
+HighLimit=300.0
 AccessType=rw
-DefaultValue=0
+DefaultValue=0.0
 PDOMapping=0
 ObjFlags=0x00
 
@@ -676,7 +682,7 @@ ParameterName=Speed Reference
 ObjectType=0x07
 DataType=0x0007
 LowLimit=0
-HighLimit=30000
+HighLimit=200000
 AccessType=rw
 DefaultValue=0
 PDOMapping=1
@@ -687,9 +693,9 @@ ParameterName=Power Reference
 ObjectType=0x07
 DataType=0x0008
 LowLimit=0.0
-HighLimit=100.0
+HighLimit=300.0
 AccessType=rw
-DefaultValue=0
+DefaultValue=0.0
 PDOMapping=0
 ObjFlags=0x00
 
@@ -705,7 +711,7 @@ PDOMapping=0
 ObjFlags=0x00
 
 [3008]
-ParameterName=Emergency Stop
+ParameterName=Drive Disable/Enable
 ObjectType=0x07
 DataType=0x0007
 LowLimit=0
@@ -720,9 +726,9 @@ ParameterName=Output PWM Frequency
 ObjectType=0x07
 DataType=0x0007
 LowLimit=8
-HighLimit=80000
+HighLimit=80
 AccessType=rw
-DefaultValue=20000
+DefaultValue=20
 PDOMapping=0
 ObjFlags=0x00
 
@@ -733,7 +739,7 @@ DataType=0x0008
 LowLimit=0.0
 HighLimit=300.0
 AccessType=rw
-DefaultValue=0
+DefaultValue=0.0
 PDOMapping=0
 ObjFlags=0x00
 
@@ -743,8 +749,8 @@ ObjectType=0x07
 DataType=0x0008
 LowLimit=0.0
 HighLimit=300.0
-AccessType=const
-DefaultValue=0
+AccessType=rw
+DefaultValue=0.0
 PDOMapping=0
 ObjFlags=0x00
 
@@ -763,8 +769,8 @@ ObjFlags=0x00
 ParameterName=Motor’s Phase or Armature Resistance
 ObjectType=0x07
 DataType=0x0008
-LowLimit=0.001
-HighLimit=50.0
+LowLimit=0.0001
+HighLimit=25.0
 AccessType=rw
 DefaultValue=0
 PDOMapping=0
@@ -774,8 +780,8 @@ ObjFlags=0x00
 ParameterName=Motor’s Phase or Armature Inductance
 ObjectType=0x07
 DataType=0x0008
-LowLimit=0.00005
-HighLimit=0.2
+LowLimit=0.0000001
+HighLimit=0.5
 AccessType=rw
 DefaultValue=0
 PDOMapping=0
@@ -808,7 +814,7 @@ ParameterName=Speed Limit
 ObjectType=0x07
 DataType=0x0007
 LowLimit=0
-HighLimit=30000
+HighLimit=200000
 AccessType=rw
 DefaultValue=30000
 PDOMapping=0
@@ -819,7 +825,7 @@ ParameterName=Feedback Control Mode
 ObjectType=0x07
 DataType=0x0007
 LowLimit=0
-HighLimit=2
+HighLimit=3
 AccessType=rw
 DefaultValue=0
 PDOMapping=0
@@ -865,7 +871,7 @@ DataType=0x0008
 LowLimit=0.0
 HighLimit=16000.0
 AccessType=rw
-DefaultValue=0
+DefaultValue=0.0
 PDOMapping=0
 ObjFlags=0x00
 
@@ -876,7 +882,7 @@ DataType=0x0008
 LowLimit=0.0
 HighLimit=16000.0
 AccessType=rw
-DefaultValue=0
+DefaultValue=0.0
 PDOMapping=0
 ObjFlags=0x00
 
@@ -885,9 +891,9 @@ ParameterName=Magnetizing/Field Weakening Current Reference
 ObjectType=0x07
 DataType=0x0008
 LowLimit=0.0
-HighLimit=32.0
+HighLimit=300.0
 AccessType=rw
-DefaultValue=0
+DefaultValue=0.0
 PDOMapping=0
 ObjFlags=0x00
 
@@ -909,7 +915,7 @@ DataType=0x0008
 LowLimit=0.0
 HighLimit=16000.0
 AccessType=rw
-DefaultValue=0
+DefaultValue=0.0
 PDOMapping=0
 ObjFlags=0x00
 
@@ -920,7 +926,7 @@ DataType=0x0008
 LowLimit=0.0
 HighLimit=16000.0
 AccessType=rw
-DefaultValue=0
+DefaultValue=0.0
 PDOMapping=0
 ObjFlags=0x00
 
@@ -947,24 +953,24 @@ PDOMapping=0
 ObjFlags=0x00
 
 [3021]
-ParameterName=Sensorless Observer Gain for Normal BLDC-PMSM Motors
+ParameterName=Sensorless Zero Speed Full Torque Injection Amplitude
 ObjectType=0x07
 DataType=0x0008
-LowLimit=0.01
-HighLimit=1000.0
+LowLimit=0.0
+HighLimit=0.55
 AccessType=rw
-DefaultValue=0.9
+DefaultValue=0.15
 PDOMapping=0
 ObjFlags=0x00
 
 [3022]
-ParameterName=Sensorless Observer Gain for Ultra-fast BLDC-PMSM Motors
+ParameterName=Sensorless Zero Speed Full Torque Polarity Amplitude
 ObjectType=0x07
 DataType=0x0008
-LowLimit=0.01
-HighLimit=1000.0
+LowLimit=0.0
+HighLimit=0.55
 AccessType=rw
-DefaultValue=0.99
+DefaultValue=0.25
 PDOMapping=0
 ObjFlags=0x00
 
@@ -975,29 +981,29 @@ DataType=0x0008
 LowLimit=0.01
 HighLimit=1000.0
 AccessType=rw
-DefaultValue=50
+DefaultValue=50.0
 PDOMapping=0
 ObjFlags=0x00
 
 [3024]
-ParameterName=Sensorless Observer Filter Gain for Normal BLDC-PMSM Motors
+ParameterName=Sensorless Zero Speed Full Torque Injection Frequency
 ObjectType=0x07
-DataType=0x0008
-LowLimit=0.01
-HighLimit=16000.0
+DataType=0x0007
+LowLimit=0
+HighLimit=10
 AccessType=rw
-DefaultValue=50
+DefaultValue=0
 PDOMapping=0
 ObjFlags=0x00
 
 [3025]
-ParameterName=Sensorless Observer Filter Gain for Ultra Fast BLDC-PMSM Motors
+ParameterName=Sensorless Transition Speed
 ObjectType=0x07
-DataType=0x0008
-LowLimit=0.01
-HighLimit=16000.0
+DataType=0x0007
+LowLimit=1
+HighLimit=5000
 AccessType=rw
-DefaultValue=10
+DefaultValue=500
 PDOMapping=0
 ObjFlags=0x00
 
@@ -1030,7 +1036,7 @@ DataType=0x0008
 LowLimit=0.0
 HighLimit=1.0
 AccessType=rw
-DefaultValue=0
+DefaultValue=0.0
 PDOMapping=0
 ObjFlags=0x00
 
@@ -1041,7 +1047,7 @@ DataType=0x0008
 LowLimit=0.0
 HighLimit=1.0
 AccessType=rw
-DefaultValue=0
+DefaultValue=0.0
 PDOMapping=0
 ObjFlags=0x00
 
@@ -1052,7 +1058,7 @@ DataType=0x0008
 LowLimit=0.0
 HighLimit=1600.0
 AccessType=rw
-DefaultValue=0
+DefaultValue=0.0
 PDOMapping=0
 ObjFlags=0x00
 
@@ -1063,7 +1069,7 @@ DataType=0x0008
 LowLimit=0.0
 HighLimit=1600.0
 AccessType=rw
-DefaultValue=0
+DefaultValue=0.0
 PDOMapping=0
 ObjFlags=0x00
 
@@ -1085,7 +1091,7 @@ DataType=0x0008
 LowLimit=-60.0
 HighLimit=60.0
 AccessType=ro
-DefaultValue=0
+DefaultValue=0.0
 PDOMapping=0
 ObjFlags=0x00
 
@@ -1093,10 +1099,10 @@ ObjFlags=0x00
 ParameterName=Phase-B voltage
 ObjectType=0x07
 DataType=0x0008
-LowLimit=-60
-HighLimit=60
+LowLimit=-60.0
+HighLimit=60.0
 AccessType=ro
-DefaultValue=0
+DefaultValue=0.0
 PDOMapping=0
 ObjFlags=0x00
 
@@ -1104,8 +1110,8 @@ ObjFlags=0x00
 ParameterName=Phase-A Current
 ObjectType=0x07
 DataType=0x0008
-LowLimit=-32
-HighLimit=32
+LowLimit=-300.0
+HighLimit=300.0
 AccessType=ro
 DefaultValue=0
 PDOMapping=0
@@ -1115,8 +1121,8 @@ ObjFlags=0x00
 ParameterName=Phase-B Current
 ObjectType=0x07
 DataType=0x0008
-LowLimit=-32.0
-HighLimit=32.0
+LowLimit=-300.0
+HighLimit=300.0
 AccessType=ro
 DefaultValue=0
 PDOMapping=0
@@ -1127,9 +1133,9 @@ ParameterName=BUS Voltage
 ObjectType=0x07
 DataType=0x0008
 LowLimit=0.0
-HighLimit=60.0
+HighLimit=800.0
 AccessType=ro
-DefaultValue=0
+DefaultValue=0.0
 PDOMapping=0
 ObjFlags=0x00
 
@@ -1137,8 +1143,8 @@ ObjFlags=0x00
 ParameterName=DC Motor Current
 ObjectType=0x07
 DataType=0x0008
-LowLimit=-32.0
-HighLimit=32.0
+LowLimit=-300.0
+HighLimit=300.0
 AccessType=ro
 DefaultValue=0
 PDOMapping=0
@@ -1148,10 +1154,10 @@ ObjFlags=0x00
 ParameterName=DC Motor Voltage
 ObjectType=0x07
 DataType=0x0008
-LowLimit=-60.0
-HighLimit=60.0
+LowLimit=-800.0
+HighLimit=800.0
 AccessType=ro
-DefaultValue=0
+DefaultValue=0.0
 PDOMapping=0
 ObjFlags=0x00
 
@@ -1159,10 +1165,10 @@ ObjFlags=0x00
 ParameterName=Quadrature Current
 ObjectType=0x07
 DataType=0x0008
-LowLimit=-64.0
-HighLimit=64.0
+LowLimit=-300.0
+HighLimit=300.0
 AccessType=ro
-DefaultValue=0
+DefaultValue=0.0
 PDOMapping=0
 ObjFlags=0x00
 
@@ -1170,10 +1176,10 @@ ObjFlags=0x00
 ParameterName=Direct Current / Magnetizing Current
 ObjectType=0x07
 DataType=0x0008
-LowLimit=-64.0
-HighLimit=64.0
+LowLimit=-300.0
+HighLimit=300.0
 AccessType=ro
-DefaultValue=0
+DefaultValue=0.0
 PDOMapping=0
 ObjFlags=0x00
 
@@ -1181,8 +1187,8 @@ ObjFlags=0x00
 ParameterName=Speed Feedback
 ObjectType=0x07
 DataType=0x0004
-LowLimit=-30000
-HighLimit=30000
+LowLimit=-200000
+HighLimit=200000
 AccessType=ro
 DefaultValue=0
 PDOMapping=0
@@ -1206,7 +1212,7 @@ DataType=0x0008
 LowLimit=-2.0
 HighLimit=2.0
 AccessType=ro
-DefaultValue=0
+DefaultValue=0.0
 PDOMapping=0
 ObjFlags=0x00
 
@@ -1215,9 +1221,9 @@ ParameterName=Board Temperature
 ObjectType=0x07
 DataType=0x0008
 LowLimit=-30.0
-HighLimit=150.0
+HighLimit=200.0
 AccessType=ro
-DefaultValue=0
+DefaultValue=0.0
 PDOMapping=0
 ObjFlags=0x00
 
@@ -1294,7 +1300,7 @@ DataType=0x0008
 LowLimit=0.0
 HighLimit=16000.0
 AccessType=rw
-DefaultValue=0
+DefaultValue=0.0
 PDOMapping=0
 ObjFlags=0x00
 
@@ -1305,7 +1311,7 @@ DataType=0x0008
 LowLimit=0.0
 HighLimit=16000.0
 AccessType=rw
-DefaultValue=0
+DefaultValue=0.0
 PDOMapping=0
 ObjFlags=0x00
 
@@ -1316,7 +1322,7 @@ DataType=0x0008
 LowLimit=0.0
 HighLimit=16000.0
 AccessType=rw
-DefaultValue=0
+DefaultValue=0.0
 PDOMapping=0
 ObjFlags=0x00
 
@@ -1327,7 +1333,7 @@ DataType=0x0008
 LowLimit=0.0
 HighLimit=16000.0
 AccessType=rw
-DefaultValue=0
+DefaultValue=0.0
 PDOMapping=0
 ObjFlags=0x00
 
@@ -1338,6 +1344,73 @@ DataType=0x0008
 LowLimit=0.0
 HighLimit=16000.0
 AccessType=rw
+DefaultValue=0.0
+PDOMapping=0
+ObjFlags=0x00
+
+[3047]
+ParameterName=PT1000 Sensor Voltage
+ObjectType=0x07
+DataType=0x0008
+LowLimit=0.0
+HighLimit=3.3
+AccessType=ro
+DefaultValue=0.0
+PDOMapping=0
+ObjFlags=0x00
+
+[3048]
+ParameterName=Digital Outputs Register
+ObjectType=0x07
+DataType=0x0007
+LowLimit=0
+HighLimit=2147483647
+AccessType=rw
 DefaultValue=0
 PDOMapping=0
 ObjFlags=0x00
+
+[304A]
+ParameterName=Analogue Input Read
+ObjectType=0x07
+DataType=0x0007
+LowLimit=0
+HighLimit=4095
+AccessType=ro
+DefaultValue=0
+PDOMapping=0
+ObjFlags=0x00
+
+[304B]
+ParameterName=Regeneration Current Limit
+ObjectType=0x07
+DataType=0x0008
+LowLimit=0.0
+HighLimit=300.0
+AccessType=rw
+DefaultValue=0.0
+PDOMapping=0
+ObjFlags=0x00
+
+[304C]
+ParameterName=Position Sensor Digital Filter Level
+ObjectType=0x07
+DataType=0x0007
+LowLimit=
+HighLimit=
+AccessType=rw
+DefaultValue=
+PDOMapping=0
+ObjFlags=0x00
+
+[5FFF]
+ParameterName=EmSA
+ObjectType=0x07
+DataType=0x0009
+LowLimit=
+HighLimit=
+AccessType=ro
+DefaultValue=EmSA www.em-sa.com, CANopen Architect Mini
+PDOMapping=0
+ObjFlags=0x00
+
